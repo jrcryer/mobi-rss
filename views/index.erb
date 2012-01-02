@@ -1,0 +1,5 @@
+<ul data-role="listview">
+    <% @feeds.each {|feed| %>
+        <li><a href="<%= url(feed) %>"><%= feed.capitalize %> +</a></li>
+    <% }%>
+</ul>

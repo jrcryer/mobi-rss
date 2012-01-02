@@ -1,0 +1,5 @@
+<ul data-role="listview">
+	<% @feed['query']['results']['item'].each{|item| %>
+		<li><a href="<%= url(item['link']) %>"><%= item['title'] %></a></li>
+	<% } %>
+</ul>
