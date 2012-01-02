@@ -1,5 +1,11 @@
-<ul data-role="listview">
+<ul data-role="listview" data-counttheme="a">
 	<% @feed['query']['results']['item'].each{|item| %>
-		<li><a href="<%= url(item['link']) %>"><%= item['title'] %></a></li>
+		<li>
+			<a href="<%= url("#{params[:feed]}/#{CGI.escape(item['guid']['content'])}") %>"><%= item['title'] %></a>
+
+			<% if item['comments'] %>
+				<span class="ui-li-count"><%= item['comments'].last %></span>
+			<% end %>
+		</li>
 	<% } %>
 </ul>
